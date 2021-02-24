@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <img src="{{ url_for('static', filename= 'img/cocina.svg') }}" width="40" height="40" alt="">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">
+                Restaurant App
+            </h1>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col">
+            <h4 class="alert alert-light text-justify">Un aplicativo web que permite manejar el menú digital de diferentes
+                restaurantes de la ciudad.</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid" src="{{ url_for('static', filename= 'img/test.png') }}" alt="Card image cap">
+        </div>
+    </div>
+</div>
+{% endblock %}

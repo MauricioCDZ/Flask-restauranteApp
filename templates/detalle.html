@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% if restaurante %}
+            <div class="container">
+                <div class="row">
+                    <div class="card w-75">
+                        <div class="card-body">
+
+                            <img src="/static/{{restaurante.logo_url}}" class="rounded" alt="logo"
+                                style="width: 10rem; height: auto;">
+                            <h5 class="card-title text-danger">{{ restaurante.nombre }}</h5>
+                            <p class="card-text text-secondary">{{ restaurante.categoria }}</p>
+                            <p class="card-text">Lugar: {{ restaurante.lugar }}</p>
+                            <p class="card-text">Dirección: {{ restaurante.direccion }}</p>
+                            <p class="card-text">Teléfono: {{ restaurante.telefono }}</p>
+                            {% if restaurante.domicilio %}
+                            <p class="card-text">Domicilio : Si</p>
+                            {% else %}
+                            <p class="card-text">Domicilio : No</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            {% endif %}
+        </div>
+
+        <div class="col">
+            <img src="/static/{{restaurante.menu_url}}" class="rounded" alt="menu" style="width: 25rem; height: auto;">
+        </div>
+    </div>
+</div>
+{% endblock %}
