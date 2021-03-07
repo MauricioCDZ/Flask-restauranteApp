@@ -14,7 +14,7 @@ import google.cloud.storage
 import json
 import sys
 
-PATH = os.path.join(os.getcwd() , '/home/mauriciocd12/restaurante-app-305804-a15cf8eb073d.json')
+PATH = os.path.join(os.getcwd() , '/home/mauriciocd12/credenciales.json')
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = PATH
 storage_client = storage.Client(PATH)
 
