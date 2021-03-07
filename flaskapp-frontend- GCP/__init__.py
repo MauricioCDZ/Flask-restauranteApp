@@ -12,7 +12,7 @@ def create_app():
     app.run(host='0.0.0.0',port=80)
     app.config["SECRET_KEY"] = "secret_key"
     #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:12345@34.122.238.20/restauranteapp"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@ip_public/restauranteapp"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
 
