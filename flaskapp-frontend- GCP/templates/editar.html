@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center alert alert-light">Editar Restaurante</h2>
+        </div>
+    </div>
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-xs-12 col-md-6 col-lg-6 text-center formcolor">
+            <form method="POST" action="{{ url_for('main.editar_restaurante_post', rest_id = restaurante.id) }} " enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ restaurante.nombre }}">
+                </div>
+
+
+                <div class="form-row align-items-center">
+                    <div class="col-12 my-1">
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">Categoría</label>
+                        <select class="custom-select mr-sm-2" id="categoria" name="categoria"
+                            value="{{ restaurante.categoria }}">
+                            <option selected>{{ restaurante.categoria }}</option>
+                            <option value="Gourmet">Gourmet</option>
+                            <option value="Comida Rápida">Comida Rápida</option>
+                            <option value="Comida Típica">Comida Típica</option>
+                            <option value="Autor">Autor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Lugar</label>
+                    <input type="text" class="form-control" id="lugar" name="lugar" value="{{ restaurante.lugar }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion"
+                        value="{{ restaurante.direccion }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono"
+                        value="{{ restaurante.telefono }}">
+                </div>
+
+                <label for="">¿ Tiene domicilio ?</label>
+                {% if restaurante.domicilio %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="options" id="options1" value="si" checked>
+                    <label class="form-check-label" for="exampleRadios1">Si</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="options" id="options2" value="no">
+                    <label class="form-check-label" for="exampleRadios2">No</label>
+                </div>
+                {% else %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="options" id="options1" value="si">
+                    <label class="form-check-label" for="exampleRadios1">Si</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="options" id="options2" value="no" checked>
+                    <label class="form-check-label" for="exampleRadios2">No</label>
+                </div>
+                {% endif %}
+
+                <br>
+                <label for="">Sube el logo del restaurante</label>
+                <div class="row">
+                    <div class="col"><input type="file" name="logo" value = "{{ restaurante.logo_url }}"></div>
+                </div>
+
+
+                <br>
+                <label for="">Sube el menú del restaurante</label>
+                <div class="row">
+                    <div class="col"><input type="file" name="menu" value = "{{ restaurante.menu_url }}"></div>
+                </div>
+
+                <br>
+
+                <br>
+                <button type="submit" class="btn btn-danger text-white">Enviar</button>
+                <br><br>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col">
+                <br>
+            </div>
+        </div>
+
+        </form>
+    </div>
+</div>
+<br><br><br>
+</div>
+{% endblock %}

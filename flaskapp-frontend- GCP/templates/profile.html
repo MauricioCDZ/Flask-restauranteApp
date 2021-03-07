@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Bienvenido, {{name}}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="text-right">
+                    <a href="/nuevo_rest" type="button" class="btn btn-outline-info pull-right">Agregar Restaurante</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% if band %}
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-info" role="alert">
+                No Tienes Restaurantes Registrados!!
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    {% for rest in restaurantes %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card w-75">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ rest.nombre }}</h5>
+                        <p class="card-text">Categoría: {{ rest.categoria }}</p>
+                        <a href="{{ url_for('main.detalles', rest_id=rest.id) }}" class="btn btn-outline-primary">Ver</a>
+                        <a href="{{ url_for('main.eliminar_restaurante', rest_id = rest.id) }}" class="btn float-right btn-danger ml-1">Eliminar</a>
+                        <a href="{{ url_for('main.editar_restaurante', rest_id = rest.id) }}" class="btn float-right btn-warning">Editar</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
